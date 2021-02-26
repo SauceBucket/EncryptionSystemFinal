@@ -29,7 +29,7 @@ namespace ConsoleApp3
             AeadAlgorithm x= AeadAlgorithm.Aes256Gcm;
             
             Span<int> num = new int[1];
-            Sha256 alg= new Sha256();
+            Sha256 alg= new Sha256();    // dont use sha im stupid
             Key a= Key.Create(alg);
             Nonce n = new Nonce();
             if(!filetest.IsEmpty)
