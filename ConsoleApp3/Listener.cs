@@ -8,23 +8,23 @@ namespace Connection
 {
     class Listener
     {
-        static void Recieve()
+        
+        //Method for listening for connections from TCPClient.
+        //Only arguments are recievers localIP which will take from GUI
+        //settings options or an eventual getLocalIP method.
+        // And savePath where the reciever wants to save the incoming file.
+        static void Recieve(string localIP, string savePath)
         {
             // Buffer for reading data
             byte[] fileArray = null;
-
-            //User input save location. GUI input from Browse...
-            string savePath = "";
-
-            //Get local ip somehow...
-            //string localIP = null;          
-
+            
             TcpListener server = null;
             try
             {
                 // Set the TcpListener on port 13000.
+                //Keep port at 13000 for continuity.
                 int port = 13000;
-                IPAddress localAddr = IPAddress.Parse("192.168.0.202");
+                IPAddress localAddr = IPAddress.Parse(localIP);
 
                 // TcpListener server = new TcpListener(port);
                 server = new TcpListener(localAddr, port);
