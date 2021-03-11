@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Code copied and altered from https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient?view=net-5.0
+using System;
 using System.Net.Sockets;
 using System.IO;
 
@@ -6,16 +7,15 @@ namespace Connection
 {
     class Client
     {
-        static void Connect(string server, string path)
+        public void Connect(string recieversIP, string path)
         {
             try
             {
-                // Create a TcpClient.
-                // Note, for this client to work you need to have a TcpListener
-                // connected to the same address as specified by the server, port
-                // combination.
+                //Constant Port
                 int port = 13000;
-                TcpClient client = new TcpClient(server, port);
+
+                // Create a TcpClient.
+                TcpClient client = new TcpClient(recieversIP, port);
 
                 // Get a client stream for reading and writing.
                 NetworkStream stream = client.GetStream();
@@ -27,7 +27,6 @@ namespace Connection
                 stream.Write(fileArray, 0, fileArray.Length);
 
                 Console.WriteLine("Sent: File");
-
 
                 // Close everything.
                 stream.Close();

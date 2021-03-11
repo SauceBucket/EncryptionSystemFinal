@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Code copied and altered from https://docs.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener?view=net-5.0
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -8,25 +9,19 @@ namespace Connection
 {
     class Listener
     {
-        
-        //Method for listening for connections from TCPClient.
-        //Only arguments are recievers localIP which will take from GUI
-        //settings options or an eventual getLocalIP method.
-        // And savePath where the reciever wants to save the incoming file.
-        static void Recieve(string localIP, string savePath)
+        public void Recieve(string localIP, string savePath)
         {
             // Buffer for reading data
-            byte[] fileArray = null;
-            
+            byte[] fileArray = new byte[11];
             TcpListener server = null;
+
             try
             {
                 // Set the TcpListener on port 13000.
-                //Keep port at 13000 for continuity.
                 int port = 13000;
                 IPAddress localAddr = IPAddress.Parse(localIP);
 
-                // TcpListener server = new TcpListener(port);
+                //Set up the recieving connection.
                 server = new TcpListener(localAddr, port);
 
                 // Start listening for client requests.
@@ -48,7 +43,8 @@ namespace Connection
                     int i;
 
                     // Loop to receive all the data sent by the client.
-                    while ((i = stream.Read(fileArray, 0, fileArray.Length)) != 0)
+                    //(11 chosen for the test file) FIX getFileLength before the recieve
+                    while ((i = stream.Read(fileArray, 0, 11)) != 0)
                     {
                         File.WriteAllBytes(savePath, fileArray);
                     }
