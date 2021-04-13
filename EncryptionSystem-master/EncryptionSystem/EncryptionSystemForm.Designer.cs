@@ -29,15 +29,21 @@ namespace EncryptionSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.decryptBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.sendBtn = new System.Windows.Forms.Button();
             this.receiveBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.IVBtn = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.KeyBtn = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.SaveLocDecrypt = new System.Windows.Forms.Button();
             this.FileSelectBtnDecrypt = new System.Windows.Forms.Button();
+            this.dchoiceBox = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -51,22 +57,35 @@ namespace EncryptionSystem
             this.label1 = new System.Windows.Forms.Label();
             this.FileSelectBtnSend = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.encryptBtn = new System.Windows.Forms.Button();
-            this.FileSelectBtnEncrypt = new System.Windows.Forms.Button();
-            this.SaveLocEncrypt = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.FileSelectBtnEncrypt = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.SaveLocEncrypt = new System.Windows.Forms.Button();
+            this.encryptBtn = new System.Windows.Forms.Button();
+            this.echoiceBox = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // decryptBtn
             // 
-            this.decryptBtn.Location = new System.Drawing.Point(357, 211);
+            this.decryptBtn.Location = new System.Drawing.Point(327, 307);
             this.decryptBtn.Name = "decryptBtn";
             this.decryptBtn.Size = new System.Drawing.Size(111, 47);
             this.decryptBtn.TabIndex = 5;
@@ -76,9 +95,9 @@ namespace EncryptionSystem
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(388, 0);
+            this.exitBtn.Location = new System.Drawing.Point(911, 12);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(98, 46);
+            this.exitBtn.Size = new System.Drawing.Size(78, 42);
             this.exitBtn.TabIndex = 7;
             this.exitBtn.Text = "Exit Application";
             this.exitBtn.UseVisualStyleBackColor = true;
@@ -107,16 +126,58 @@ namespace EncryptionSystem
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.IVBtn);
+            this.panel1.Controls.Add(this.textBox11);
+            this.panel1.Controls.Add(this.textBox10);
+            this.panel1.Controls.Add(this.KeyBtn);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.SaveLocDecrypt);
             this.panel1.Controls.Add(this.FileSelectBtnDecrypt);
-            this.panel1.Controls.Add(this.exitBtn);
             this.panel1.Controls.Add(this.decryptBtn);
-            this.panel1.Location = new System.Drawing.Point(503, 12);
+            this.panel1.Controls.Add(this.dchoiceBox);
+            this.panel1.Location = new System.Drawing.Point(0, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 275);
+            this.panel1.Size = new System.Drawing.Size(862, 464);
             this.panel1.TabIndex = 13;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // IVBtn
+            // 
+            this.IVBtn.Location = new System.Drawing.Point(327, 238);
+            this.IVBtn.Name = "IVBtn";
+            this.IVBtn.Size = new System.Drawing.Size(127, 30);
+            this.IVBtn.TabIndex = 21;
+            this.IVBtn.Text = "Browse...";
+            this.IVBtn.UseVisualStyleBackColor = true;
+            this.IVBtn.Click += new System.EventHandler(this.IVBtn_Click);
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(10, 238);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(300, 23);
+            this.textBox11.TabIndex = 20;
+            this.textBox11.Text = "IV";
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(10, 191);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(300, 23);
+            this.textBox10.TabIndex = 19;
+            this.textBox10.Text = "Key";
+            // 
+            // KeyBtn
+            // 
+            this.KeyBtn.Location = new System.Drawing.Point(327, 191);
+            this.KeyBtn.Name = "KeyBtn";
+            this.KeyBtn.Size = new System.Drawing.Size(127, 30);
+            this.KeyBtn.TabIndex = 18;
+            this.KeyBtn.Text = "Browse...";
+            this.KeyBtn.UseVisualStyleBackColor = true;
+            this.KeyBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox4
             // 
@@ -131,6 +192,7 @@ namespace EncryptionSystem
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(300, 23);
             this.textBox3.TabIndex = 16;
+            this.textBox3.Text = "File";
             // 
             // SaveLocDecrypt
             // 
@@ -152,6 +214,18 @@ namespace EncryptionSystem
             this.FileSelectBtnDecrypt.UseVisualStyleBackColor = true;
             this.FileSelectBtnDecrypt.Click += new System.EventHandler(this.FileSelectBtnDecrypt_Click);
             // 
+            // dchoiceBox
+            // 
+            this.dchoiceBox.FormattingEnabled = true;
+            this.dchoiceBox.ItemHeight = 15;
+            this.dchoiceBox.Items.AddRange(new object[] {
+            "RSA",
+            "AES"});
+            this.dchoiceBox.Location = new System.Drawing.Point(10, 307);
+            this.dchoiceBox.Name = "dchoiceBox";
+            this.dchoiceBox.Size = new System.Drawing.Size(123, 49);
+            this.dchoiceBox.TabIndex = 0;
+            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -162,9 +236,9 @@ namespace EncryptionSystem
             this.panel3.Controls.Add(this.SaveLocReceive);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.FileSelectBtnReceive);
-            this.panel3.Location = new System.Drawing.Point(503, 293);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(486, 269);
+            this.panel3.Size = new System.Drawing.Size(859, 464);
             this.panel3.TabIndex = 14;
             // 
             // textBox9
@@ -225,9 +299,9 @@ namespace EncryptionSystem
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.FileSelectBtnSend);
             this.panel4.Controls.Add(this.sendBtn);
-            this.panel4.Location = new System.Drawing.Point(12, 293);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(485, 269);
+            this.panel4.Size = new System.Drawing.Size(853, 467);
             this.panel4.TabIndex = 14;
             // 
             // textBox8
@@ -263,19 +337,50 @@ namespace EncryptionSystem
             this.FileSelectBtnSend.UseVisualStyleBackColor = true;
             this.FileSelectBtnSend.Click += new System.EventHandler(this.FileSelectBtnSend_Click);
             // 
-            // openFileDialog1
+            // tabControl1
             // 
-
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(873, 498);
+            this.tabControl1.TabIndex = 1000;
             // 
-            // encryptBtn
+            // tabPage5
             // 
-            this.encryptBtn.Location = new System.Drawing.Point(357, 211);
-            this.encryptBtn.Name = "encryptBtn";
-            this.encryptBtn.Size = new System.Drawing.Size(109, 47);
-            this.encryptBtn.TabIndex = 4;
-            this.encryptBtn.Text = "Encrypt";
-            this.encryptBtn.UseVisualStyleBackColor = true;
-            this.encryptBtn.Click += new System.EventHandler(this.encryptBtn_Click);
+            this.tabPage5.Controls.Add(this.panel2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(865, 470);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Encrypt";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.textBox12);
+            this.panel2.Controls.Add(this.FileSelectBtnEncrypt);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.SaveLocEncrypt);
+            this.panel2.Controls.Add(this.encryptBtn);
+            this.panel2.Controls.Add(this.echoiceBox);
+            this.panel2.Location = new System.Drawing.Point(53, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(693, 415);
+            this.panel2.TabIndex = 1;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(9, 354);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(197, 23);
+            this.textBox12.TabIndex = 15;
             // 
             // FileSelectBtnEncrypt
             // 
@@ -287,6 +392,20 @@ namespace EncryptionSystem
             this.FileSelectBtnEncrypt.UseVisualStyleBackColor = true;
             this.FileSelectBtnEncrypt.Click += new System.EventHandler(this.FileSelectBtnEncrypt_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(9, 137);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(300, 23);
+            this.textBox2.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(9, 82);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(300, 23);
+            this.textBox1.TabIndex = 14;
+            // 
             // SaveLocEncrypt
             // 
             this.SaveLocEncrypt.Location = new System.Drawing.Point(327, 132);
@@ -297,32 +416,65 @@ namespace EncryptionSystem
             this.SaveLocEncrypt.UseVisualStyleBackColor = true;
             this.SaveLocEncrypt.Click += new System.EventHandler(this.SaveLocEncrypt_Click);
             // 
-            // panel2
+            // encryptBtn
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.SaveLocEncrypt);
-            this.panel2.Controls.Add(this.FileSelectBtnEncrypt);
-            this.panel2.Controls.Add(this.encryptBtn);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(485, 275);
-            this.panel2.TabIndex = 0;
+            this.encryptBtn.Location = new System.Drawing.Point(357, 211);
+            this.encryptBtn.Name = "encryptBtn";
+            this.encryptBtn.Size = new System.Drawing.Size(109, 47);
+            this.encryptBtn.TabIndex = 4;
+            this.encryptBtn.Text = "Encrypt";
+            this.encryptBtn.UseVisualStyleBackColor = true;
+            this.encryptBtn.Click += new System.EventHandler(this.encryptBtn_Click);
             // 
-            // textBox2
+            // echoiceBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 137);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 23);
-            this.textBox2.TabIndex = 15;
+            this.echoiceBox.FormattingEnabled = true;
+            this.echoiceBox.ItemHeight = 15;
+            this.echoiceBox.Items.AddRange(new object[] {
+            "RSA",
+            "AES"});
+            this.echoiceBox.Location = new System.Drawing.Point(9, 211);
+            this.echoiceBox.Name = "echoiceBox";
+            this.echoiceBox.Size = new System.Drawing.Size(127, 49);
+            this.echoiceBox.TabIndex = 0;
             // 
-            // textBox1
+            // tabPage2
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 23);
-            this.textBox1.TabIndex = 14;
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(865, 470);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Decrypt";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(865, 470);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Send";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.panel3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(865, 470);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Receive";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // EncryptionSystemForm
             // 
@@ -331,10 +483,8 @@ namespace EncryptionSystem
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1001, 574);
             this.ControlBox = false;
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.exitBtn);
             this.Name = "EncryptionSystemForm";
             this.Text = "Encryption System";
             this.Load += new System.EventHandler(this.EncryptionSystemForm_Load);
@@ -344,8 +494,13 @@ namespace EncryptionSystem
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -366,12 +521,7 @@ namespace EncryptionSystem
         private System.Windows.Forms.Button SaveLocDecrypt;
         private System.Windows.Forms.Button SaveLocReceive;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button encryptBtn;
-        private System.Windows.Forms.Button FileSelectBtnEncrypt;
-        private System.Windows.Forms.Button SaveLocEncrypt;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox9;
@@ -379,7 +529,25 @@ namespace EncryptionSystem
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button SaveLocEncrypt;
+        private System.Windows.Forms.Button FileSelectBtnEncrypt;
+        private System.Windows.Forms.Button encryptBtn;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button KeyBtn;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Button IVBtn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ListBox dchoiceBox;
+        private System.Windows.Forms.ListBox echoiceBox;
     }
 }
 

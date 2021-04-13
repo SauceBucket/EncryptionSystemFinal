@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\richa\\.nuget\\packages\\": {}
+    "C:\\Users\\Pizza\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\richa\\source\\repos\\EncryptionSystem-master\\EncryptionSystem\\EncryptionSystem.csproj",
+      "projectUniqueName": "C:\\Users\\Pizza\\source\\repos\\EncryptionSystem-master\\EncryptionSystem\\EncryptionSystem.csproj",
       "projectName": "EncryptionSystem",
-      "projectPath": "C:\\Users\\richa\\source\\repos\\EncryptionSystem-master\\EncryptionSystem\\EncryptionSystem.csproj",
-      "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\richa\\source\\repos\\EncryptionSystem-master\\EncryptionSystem\\obj\\",
+      "projectPath": "C:\\Users\\Pizza\\source\\repos\\EncryptionSystem-master\\EncryptionSystem\\EncryptionSystem.csproj",
+      "packagesPath": "C:\\Users\\Pizza\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pizza\\source\\repos\\EncryptionSystem-master\\EncryptionSystem\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pizza\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +67,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
